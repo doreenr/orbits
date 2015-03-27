@@ -11,8 +11,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.geom.AffineTransform;
 
-
-
 public class CanvasIP extends Canvas implements MouseListener {
 
     Graphics2D g3;
@@ -24,7 +22,7 @@ public class CanvasIP extends Canvas implements MouseListener {
     public CanvasIP(UModel m) {
         model = m; 
         n = model.getn();
-        v = model.getv();
+        // v = model.getv();
         addMouseListener(this);
         // vPlus = new ListenSquare(160, 8, 16, 16); // 51
         // vMinus = new ListenSquare(138, 8, 16, 16);
@@ -58,59 +56,61 @@ public class CanvasIP extends Canvas implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        MouseData J = MouseData.process(e);
-        // boolean test1 = vPlus.inside(J.X);
-        // boolean test2 = vMinus.inside(J.X);
-        boolean test3 = nMinus.inside(J.X);
-        boolean test4 = nPlus.inside(J.X);
-//        if (test1 == true) {
-//            if (v < 100) {
-//            v += 1;
-//            model.setv(v);
+//        MouseData J = MouseData.process(e);
+//        // boolean test1 = vPlus.inside(J.X);
+//        // boolean test2 = vMinus.inside(J.X);
+////        boolean test3 = nMinus.inside2(J.X);
+////        boolean test4 = nPlus.inside2(J.X);
+////        if (test1 == true) {
+////            if (v < 100) {
+////            v += 1;
+////            model.setv(v);
+////            model.reset();
+////            repaint(); }
+////        }
+////        if (test2 == true) {
+////            if (v > 0) {
+////            v += 1;
+////            model.setv(v);
+////            model.reset();
+////            repaint(); }
+////        }
+////        if (test3 == true) {
+////            if (n > 1) {
+////            n -= 1;
+////            model.setn(n);
+////            if (n > 0 && v % n != 0) {
+////                v -= 1;
+////                if (v % n != 0) {v -= 1;}
+////                if (v % n != 0) {v -= 1;}         
+////                if (v % n != 0) {v -= 1;}       
+////                if (v % n != 0) {v -= 1;}         
+////                if (v % n != 0) {v -= 1;}      
+////                if (v % n != 0) {v -= 1;}                
+////                if (v % n != 0) {v -= 1;}
+////                // model.setv(v);
+////            }
+////            model.reset();
+////            repaint(); }
+////        }
+//        if (test4 == true) {
+//            if (n < 9) {
+//            n += 1;
+//            model.setn(n);
+//            if (v % n != 0) {
+//                v += 1;
+//                if (v % n != 0) {v += 1;}
+//                if (v % n != 0) {v += 1;}
+//                if (v % n != 0) {v += 1;}
+//                if (v % n != 0) {v += 1;}
+//                if (v % n != 0) {v += 1;}
+//                if (v % n != 0) {v += 1;}
+//                // model.setv(v);
+//            }    
 //            model.reset();
+//            System.out.println("n: " + n);
 //            repaint(); }
 //        }
-//        if (test2 == true) {
-//            if (v > 0) {
-//            v += 1;
-//            model.setv(v);
-//            model.reset();
-//            repaint(); }
-//        }
-        if (test3 == true) {
-            if (n > 1) {
-            n -= 1;
-            model.setn(n);
-            if (n > 0 && v % n != 0) {
-                v -= 1;
-                if (v % n != 0) {v -= 1;}
-                if (v % n != 0) {v -= 1;}         
-                if (v % n != 0) {v -= 1;}       
-                if (v % n != 0) {v -= 1;}         
-                if (v % n != 0) {v -= 1;}      
-                if (v % n != 0) {v -= 1;}                
-                if (v % n != 0) {v -= 1;}
-                model.setv(v);}
-            model.reset();
-            repaint(); }
-        }
-        if (test4 == true) {
-            if (n < 9) {
-            n += 1;
-            model.setn(n);
-            if (v % n != 0) {
-                v += 1;
-                if (v % n != 0) {v += 1;}
-                if (v % n != 0) {v += 1;}
-                if (v % n != 0) {v += 1;}
-                if (v % n != 0) {v += 1;}
-                if (v % n != 0) {v += 1;}
-                if (v % n != 0) {v += 1;}
-                model.setv(v);}    
-            model.reset();
-            System.out.println("n: " + n);
-            repaint(); }
-        }
     }
 
     @Override

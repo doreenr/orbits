@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/org.jzy3d-0.9-tutorials/src/demos/org/jzy3d/demos/scatter/ScatterDemo.java"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="1"/>
+</listAttribute>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="org.jzy3d.demos.scatter.ScatterDemo"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="org.jzy3d-0.9-tutorials"/>
+</launchConfiguration>
