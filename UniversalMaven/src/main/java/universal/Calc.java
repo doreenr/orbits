@@ -32,9 +32,8 @@ import org.ojalgo.matrix.BasicMatrix;
 public final class Calc {
     UModel model;
     private int it, count, startindex;
-    private BigDecimal[] pmU, pmV, pmW, pmX, pmY, pmZ, rpmU, rpmV, rpmW, rpmX, rpmY, rpmZ;
-    private BigDecimal[] paU, paV, paW, paX, paZ, paY, rpaU, rpaV, rpaW, rpaX, rpaZ, rpaY;
-    // Matrix matpa, matpm;
+    private BigDecimal[] pmU, pmV, pmW, pmX, pmY, pmZ, pmR, pmS, pmT, pmK;
+    private BigDecimal[] paU, paV, paW, paX, paZ, paY, paR, paS, paT, paK;
     
 
     Calc(UModel m) throws FileNotFoundException {
@@ -47,13 +46,21 @@ public final class Calc {
         pmW = model.getBigClouds(1, 0, 1); // (which map, which dim)        
         pmX = model.getBigClouds(1, 1, 1); // (which map, which dim)
         pmY = model.getBigClouds(1, 0, 2); // (which map, which dim)
-        pmZ = model.getBigClouds(1, 1, 2); // (which map, which dim)  
+        pmZ = model.getBigClouds(1, 1, 2); // (which map, which dim)
+        pmR = model.getBigClouds(1, 0, 3); // (which map, which dim)
+        pmS = model.getBigClouds(1, 1, 3); // (which map, which dim)
+        
         paU = model.getBigClouds(2, 0, 0); // (pa map, x, P1)
         paV = model.getBigClouds(2, 1, 0); // (pa map, y, P1)
         paW = model.getBigClouds(2, 0, 1); // (pa map, x, P2)        
         paX = model.getBigClouds(2, 1, 1); // (pa map, y, P2)
         paY = model.getBigClouds(2, 0, 2); // (pa map, x, P3)
         paZ = model.getBigClouds(2, 1, 2); // (pa map, y, P3)
+        paR = model.getBigClouds(2, 0, 3); // (which map, which dim)
+        paS = model.getBigClouds(2, 1, 3); // (which map, which dim)
+        // paT = model.getBigClouds(2, 0, 4); // (which map, which dim)
+        // paK = model.getBigClouds(2, 1, 4); // (which map, which dim)
+
 //        for (int i = 0; i < paU.length; ++i){
 //            System.out.print("; i:" + paU[i] + ", ");
 //        }
@@ -161,13 +168,22 @@ public final class Calc {
 }
       
     private void PrintAllPoints() throws FileNotFoundException{
-        double[] d = new double [6];
-        String filename = "outputallP3" + it + ".csv";
+        double[] d = new double [10];
+        String filename = "N4_output" + it + ".csv";
         PrintStream out = new PrintStream(new FileOutputStream(filename));
         for (int i= 0; i < it; ++i) {
-            d[0] = paU[i].doubleValue(); d[1] = paV[i].doubleValue(); d[2] = paW[i].doubleValue(); d[3] = paX[i].doubleValue(); d[4] = paY[i].doubleValue(); d[5] = paZ[i].doubleValue();
+            d[0] = paU[i].doubleValue(); 
+            d[1] = paV[i].doubleValue(); 
+            d[2] = paW[i].doubleValue(); 
+            d[3] = paX[i].doubleValue(); 
+            d[4] = paY[i].doubleValue(); 
+            d[5] = paZ[i].doubleValue(); 
+            d[6] = paR[i].doubleValue();
+            d[7] = paS[i].doubleValue(); 
+            //d[8] = paT[i].doubleValue(); 
+            //d[9] = paK[i].doubleValue(); 
             // RealVector p = new ArrayRealVector(d);
-            out.println(d[0] + ", " + d[1] + ", " + d[2] + ", " + d[3] + ", " + d[4] + ", " + d[5]);
+            out.println(d[0] + ", " + d[1] + ", " + d[2] + ", " + d[3] + ", " + d[4] + ", " + d[5]+ ", " + d[6] + ", " + d[7]); //+ ", " + d[8] + ", " + d[9]);
             System.out.print(d[5] + ", ");
         }
         System.setOut(out);

@@ -9,13 +9,13 @@
  
 %% // Read dataset
 %X = dlmread('transformedPCA_10000P3.txt');
-X = dlmread('transP1_10000.txt');
+%X = dlmread('transP1_10000.txt');
 
 % X = dlmread('transP2_100000.txt'); 
 % X = dlmread('transP3_10000.txt'); 
 % X = dlmread('transP4_10000.txt'); 
 % X = dlmread('transP5_10000.txt'); 
-% X = dlmread('transP6_10000.txt'); 
+X = dlmread('transP6_10000.txt'); 
 
 %% // Configuration
 PointPlaneDistTol = 1e-7;
@@ -88,6 +88,7 @@ for i = 1:numPlanes
         end
     end
 end
+
 reconstructedVertices = uniquetol(cell2mat(cornerPointsOfFace), PointPointDistTol, 'rows');
  
 %% // Reconstruct the face via convex hull of old points + reconstructed vertices
@@ -108,14 +109,14 @@ rot = @(t,a,b) [cos(a*t), -sin(a*t), 0, 0;
 C = lines(numPlanes);
 
 gif_fps = 24;
-filename = '/Users/Doreen/github/orbits/Matlab/DancingP1.gif';
+filename = '/Users/Doreen/github/orbits/Matlab/DancingP6.gif';
 fh = figure(1);
 
 for t = linspace(0,10*pi,4000)
     clf;
     %filename = '/Users/Doreen/github/orbits/Matlab/DancingP1.gif';
     R = rot(t,2,5);
-    Proj = R(:,[2,3,4]); % x,z,w-axes give an interesting result.
+    Proj = R(:,[1,3,4]); % x,z,w-axes give an interesting result.
     for i = 1:numPlanes
         Y = reconstructedFaces{i}*Proj;
         patch(Y(:,1), Y(:,2), Y(:,3), C(i,:),'EdgeColor','none');
@@ -125,7 +126,7 @@ for t = linspace(0,10*pi,4000)
     cornersTrans = reconstructedVertices*Proj;
     plot3(cornersTrans(:,1),cornersTrans(:,2),cornersTrans(:,3),'.','MarkerSize',20);
     alpha(0.3);
-    axis([-4 4 -1 1 -1 1]); 
+    axis([-5 5 -1 1 -1 1]); 
     axis vis3d; view(3);
     drawnow;
     frame = getframe(gcf,[100 50 400 320]); %(fh);
