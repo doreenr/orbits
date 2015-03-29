@@ -15,14 +15,14 @@
 % X = dlmread('transP3_10000.txt'); 
 % X = dlmread('transP4_10000.txt'); 
 % X = dlmread('transP5_10000.txt'); 
-X = dlmread('N3_transP3.txt'); 
+X = dlmread('N5_transP2.txt'); 
 
 %% // Configuration
 PointPlaneDistTol = 1e-7;
 PointPointDistTol = 1e-7;
 PointEdgeDistTol = 0.13;
 FaceEdgeDistTol = 0.09;
-maxNumPlanes = 40;
+maxNumPlanes = 400;
 numIterations = 1000;
 %% // Match planes to dataset X:
 %  // Choose 3 Points randomly. Generate plane. Find points within tol.
