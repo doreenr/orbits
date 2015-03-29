@@ -8,8 +8,8 @@
  
  
 %% // Read dataset
-%X = dlmread('transformedPCA_10000P3.txt');
-%X = dlmread('transP1_10000.txt');
+% X = dlmread('transformedPCA_10000P3.txt');
+% X = dlmread('transP1_10000.txt');
 
 % X = dlmread('transP2_100000.txt'); 
 % X = dlmread('transP3_10000.txt'); 
@@ -22,7 +22,7 @@ PointPlaneDistTol = 1e-7;
 PointPointDistTol = 1e-7;
 PointEdgeDistTol = 0.13;
 FaceEdgeDistTol = 0.09;
-maxNumPlanes = 400;
+maxNumPlanes = 800;
 numIterations = 1000;
 %% // Match planes to dataset X:
 %  // Choose 3 Points randomly. Generate plane. Find points within tol.
