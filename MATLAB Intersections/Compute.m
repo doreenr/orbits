@@ -15,7 +15,7 @@
 % X = dlmread('transP3_10000.txt'); 
 % X = dlmread('transP4_10000.txt'); 
 % X = dlmread('transP5_10000.txt'); 
-X = dlmread('transP6_10000.txt'); 
+X = dlmread('N3_transP3.txt'); 
 
 %% // Configuration
 PointPlaneDistTol = 1e-7;
@@ -109,7 +109,7 @@ rot = @(t,a,b) [cos(a*t), -sin(a*t), 0, 0;
 C = lines(numPlanes);
 
 gif_fps = 24;
-filename = '/Users/Doreen/github/orbits/Matlab/DancingP6.gif';
+filename = '/Users/Doreen/github/orbits/Matlab INTERSECTIONS/DancP1.gif';
 fh = figure(1);
 
 for t = linspace(0,10*pi,4000)
