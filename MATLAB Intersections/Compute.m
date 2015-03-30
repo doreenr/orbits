@@ -22,7 +22,7 @@ PointPlaneDistTol = 1e-7;
 PointPointDistTol = 1e-7;
 PointEdgeDistTol = 0.13;
 FaceEdgeDistTol = 0.09;
-maxNumPlanes = 600;
+maxNumPlanes = 1600;
 numIterations = 1000;
 %% // Match planes to dataset X:
 %  // Choose 3 Points randomly. Generate plane. Find points within tol.
